@@ -1,0 +1,14 @@
+{
+  "author": "Saneyuki Tadokoro <post@saneyuki.gfunction.com>",
+  "name": "namespace.js",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Saneyan/Namespace.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Saneyan/Namespace.js.git"
+  },
+  "main": "lib/namespace.js",
+  "dependencies": {
+    "overload.js": ">= 0.0.2"
+  }
