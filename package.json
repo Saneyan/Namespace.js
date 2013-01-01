@@ -1,7 +1,7 @@
 {
   "author": "Saneyuki Tadokoro <post@saneyuki.gfunction.com>",
   "name": "namespace.js",
-  "description": "",
+  "description": "Using ECMAScript's module system as a reference",
   "version": "0.0.1",
   "homepage": "https://github.com/Saneyan/Namespace.js",
   "repository": {
