@@ -10,19 +10,25 @@ var Namespace = require('../lib/namespace.js');
   describe('Namespace.js', function () {
 
     var $ = new Namespace();
+    
+    describe('Modules', function () {
+      it('should define modules', function (done) {
+        $.module('test', function (test) {
+          test.exports('out', function (message) {
+            console.log(message);
+          });
+          
+          test.exports('add', function (a, b) {
+            return a + b;
+          })
+        });
+        
+        done();
+      });
+    });
 
-    Namespace.modules.test = {
-      out: function (message) {
-        console.log(message);
-      },
-
-      add: function (a, b) {
-        return a + b;
-      }
-    };
 
     describe('Imports', function () {
-
       it('should import modules', function (done) {
         $.imports('add', 'out').from('test')
           .imports('test').as('tmod')
@@ -32,6 +38,17 @@ var Namespace = require('../lib/namespace.js');
         $.o($.a(5, 2));
         $.tmod.out($.tmod.add(9, 3));
 
+        done();
+      });
+    });
+    
+    
+    describe('Exports', function () {
+      it('should export modules', function (done) {
+        $.exports('inc', function (value) {
+          return ++value;
+        });
+        
         done();
       });
     });
