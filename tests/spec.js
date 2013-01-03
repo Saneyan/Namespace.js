@@ -12,16 +12,18 @@ var Namespace = require('../lib/namespace.js'),
   describe('Namespace.js', function () {
     describe('Exports method', function () {
       
-      Namespace.modules = {
-        keyboard: { exports: {
+      Namespace.modules.keyboard = {
+        exports: {
           press: function (str) { return str === 'a' ? 97 : 0; },
           enableA20: function () { console.log('Enabled A20 Line!'); }
-        } },
+        }
+      };
         
-        ide: { exports: {
+      Namespace.modules.ide = {
+        exports: {
           read: function (sector) { return sector === 0 ? 'MBR' : 'DATA'; },
           write: function (sector, data) { console.log('Wrote ' + data + ' to ' + sector); }
-        } }
+        }
       };
       
       var ns = new Namespace();
@@ -38,7 +40,7 @@ var Namespace = require('../lib/namespace.js'),
       
       it('should re-export and rename module\'s exports', function (done) {
         ns.exports({ enableA20: 'eat' }).from('keyboard');
-        ns.eat();
+        ns.__exports__.eat();
         done();
       });
       
