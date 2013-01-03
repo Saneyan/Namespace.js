@@ -72,13 +72,8 @@ var Namespace = require('../lib/namespace.js'),
       
       it('should define a module by object', function (done) {
         var math = {
-          add: function (a, b) {
-            return a + b;
-          },
-          
-          div: function (a, b) {
-            return a - b;
-          }
+          add: function (a, b) { return a + b; },
+          div: function (a, b) { return a - b; }
         };
         
         $.module('math', math);
@@ -112,9 +107,9 @@ var Namespace = require('../lib/namespace.js'),
       });
       
       it('should bind and rename module\'s exports', function () {
-        $.imports({ add: 'a', div: 'div' }).from('math');
-        assert($.add(100, 254), 354);
-        assert($.div(90345, 249), 90096);
+        $.imports({ add: 'a', div: 'd' }).from('math');
+        assert($.a(100, 254), 354);
+        assert($.d(90345, 249), 90096);
       });
       
       it('should bind nested module\'s exports', function () {
